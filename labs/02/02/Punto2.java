@@ -52,4 +52,99 @@ public static double[] generarArregloAleatorio(int tamaño) {
     }
     return arreglo;
     }
+
+public static void main(String[] args) {
+        int[] tamaños = {100, 500, 1000, 5000, 10000};
+        double[][] arreglos = new double[tamaños.length][];
+        for (int i = 0; i < tamaños.length; i++) {
+            arreglos[i] = generarArregloAleatorio(tamaños[i]);
+        }
+        
+        System.out.println("Método\t\t100\t\t500\t\t1000\t\t5000\t\t10000");
+        System.out.println("-----------------------------------------------------------");
+        System.out.print("Burbuja\t\t");
+        for (int i = 0; i < tamaños.length; i++) {
+            double[] arreglo = arreglos[i];
+            long tiempoInicio = System.currentTimeMillis();
+            burbuja(arreglo);
+            long tiempoFin = System.currentTimeMillis();
+            long tiempoTotal = tiempoFin - tiempoInicio;
+            System.out.print(tiempoTotal + " ms\t");
+        }
+        System.out.println();
+        
+        System.out.print("Inserción\t");
+        for (int i = 0; i < tamaños.length; i++) {
+            double[] arreglo = arreglos[i];
+            long tiempoInicio = System.currentTimeMillis();
+            insercion(arreglo);
+            long tiempoFin = System.currentTimeMillis();
+            long tiempoTotal = tiempoFin - tiempoInicio;
+            System.out.print(tiempoTotal + " ms\t");
+        }
+        System.out.println();
+        
+        System.out.print("Selección\t");
+        for (int i = 0; i < tamaños.length; i++) {
+            double[] arreglo = arreglos[i];
+            long tiempoInicio = System.currentTimeMillis();
+            seleccion(arreglo);
+            long tiempoFin = System.currentTimeMillis();
+            long tiempoTotal = tiempoFin - tiempoInicio;
+            System.out.print(tiempoTotal + " ms\t");
+        }
+        System.out.println();
+        
+        System.out.print("Mergesort\t");
+        for (int i = 0; i < tamaños.length; i++) {
+            double[] arreglo = arreglos[i];
+            long tiempoInicio = System.currentTimeMillis();
+            mergesort(arreglo);
+            long tiempoFin = System.currentTimeMillis();
+            long tiempoTotal = tiempoFin - tiempoInicio;
+            System.out.print(tiempoTotal + " ms\t");
+        }
+        System.out.println();
+    }
+    
+    public static void burbuja(double[] arreglo) {
+        int n = arreglo.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    double temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
+    public static void insercion(double[] arreglo) {
+        int n = arreglo.length;
+        for (int i = 1; i < n; i++) {
+            double actual = arreglo[i];
+            int j = i - 1;
+            while (j >= 0 ){
+                arreglo[j + 1] = arreglo[j];
+                j--;
+        }
+        arreglo[j + 1] = actual;
+    }
+}
+
+public static void seleccion(double[] arreglo) {
+    int n = arreglo.length;
+    for (int i = 0; i < n - 1; i++) {
+        int minimoIndice = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arreglo[j] < arreglo[minimoIndice]) {
+                minimoIndice = j;
+            }
+        }
+        double temp = arreglo[minimoIndice];
+        arreglo[minimoIndice] = arreglo[i];
+        arreglo[i] = temp;
+    }
+}
 }
