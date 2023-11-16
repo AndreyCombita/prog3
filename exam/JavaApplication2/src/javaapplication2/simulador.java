@@ -3,9 +3,9 @@ package javaapplication2;
 
 
 public class simulador extends javax.swing.JFrame {
-    int pedalazos2;
-    int pedalazos1;
-    int ca;
+    int pedalazos2=0;
+    int pedalazos1=0;
+    int ca=0;
     
     
 
@@ -159,7 +159,8 @@ public class simulador extends javax.swing.JFrame {
     
     private void pedal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedal1ActionPerformed
         
-       int num=Integer.parseInt(Cont.getText()); 
+       int num=Integer.parseInt(Cont.getText());
+        pedalazos1+=1;
         if ((pedalazos1==num)){
             ca=ca+1;
             Ind1.setText(Integer.toString(ca));
@@ -180,6 +181,7 @@ public class simulador extends javax.swing.JFrame {
 
     private void pedal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedal2ActionPerformed
            
+        pedalazos2+=1;
         int num=Integer.parseInt(Cont.getText()); 
         if ((pedalazos2==num)){
             pedal2.setVisible(false);
@@ -190,7 +192,6 @@ public class simulador extends javax.swing.JFrame {
             pedal2.setVisible(true);
             pedal1.setVisible(false);
         }
-        
     }//GEN-LAST:event_pedal2ActionPerformed
         
     private void s2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s2ActionPerformed
@@ -207,11 +208,11 @@ public class simulador extends javax.swing.JFrame {
     }//GEN-LAST:event_pedal1PropertyChange
 
     private void pedal1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedal1MouseClicked
-     pedalazos1=+1;
+    
     }//GEN-LAST:event_pedal1MouseClicked
 
     private void pedal2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedal2MouseClicked
-     pedalazos2=+1;
+     
     }//GEN-LAST:event_pedal2MouseClicked
 
     private void ContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContActionPerformed
