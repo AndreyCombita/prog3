@@ -3,7 +3,8 @@ package javaapplication2;
 
 
 public class simulador extends javax.swing.JFrame {
-
+    int pedalazos2;
+    int pedalazos1;
 
     public simulador() {
         initComponents();
@@ -142,10 +143,17 @@ public class simulador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pedal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedal1ActionPerformed
-        int num=Integer.parseInt(Cont.getText());
-        int pedalazos1=0;
-        if (pedalazos1=num){
-            pedal1.setVisible(rootPaneCheckingEnabled);
+        int num;
+        num = Integer.parseInt(Cont.getText());
+        int pedalazos1=+1;
+        if ((pedalazos1==num)){
+            pedal1.setVisible(false);
+            pedal2.setVisible(true);
+            pedalazos1=0;
+        }
+        else{
+            pedal1.setVisible(true);
+            pedal2.setVisible(false);
         }
        
     }//GEN-LAST:event_pedal1ActionPerformed
@@ -155,9 +163,20 @@ public class simulador extends javax.swing.JFrame {
     }//GEN-LAST:event_Ind1ActionPerformed
 
     private void pedal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedal2ActionPerformed
-            :
+            int num=Integer.parseInt(Cont.getText());
+        pedalazos2=+1;
+        if ((pedalazos2==num)){
+            pedal2.setVisible(false);
+            pedal1.setVisible(true);
+            pedalazos2=0;
+        }
+        else{
+            pedal2.setVisible(true);
+            pedal1.setVisible(false);
+        }
+        
     }//GEN-LAST:event_pedal2ActionPerformed
-
+        
     private void s2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_s2ActionPerformed
