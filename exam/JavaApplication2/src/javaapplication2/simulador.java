@@ -1,11 +1,12 @@
-
 package javaapplication2;
+//Funciona un con un click por pedal
 
+import javax.swing.JOptionPane;
 
 public class simulador extends javax.swing.JFrame {
-    int pedalazos2=0;
-    int pedalazos1=0;
-    int ca=0;
+    int pedalazos2 = 0;
+    int pedalazos1 = 0;
+    int ca = 0;
     
     
 
@@ -30,6 +31,7 @@ public class simulador extends javax.swing.JFrame {
         s1 = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         Cont = new javax.swing.JTextField();
+        etqMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +97,8 @@ public class simulador extends javax.swing.JFrame {
             }
         });
 
+        etqMensaje.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,7 +115,9 @@ public class simulador extends javax.swing.JFrame {
                         .addComponent(s1)
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(65, 65, 65)
+                .addComponent(etqMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(Cont, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,7 +142,9 @@ public class simulador extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(etqMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Cont, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -160,7 +168,7 @@ public class simulador extends javax.swing.JFrame {
     private void pedal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedal1ActionPerformed
         
        int num=Integer.parseInt(Cont.getText());
-        pedalazos1+=1;
+        pedalazos1=+1;
         if ((pedalazos1==num)){
             ca=ca+1;
             Ind1.setText(Integer.toString(ca));
@@ -180,8 +188,8 @@ public class simulador extends javax.swing.JFrame {
     }//GEN-LAST:event_Ind1ActionPerformed
 
     private void pedal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedal2ActionPerformed
-           
-        pedalazos2+=1;
+        etqMensaje.setText("pedal2ActionPerformed");  
+        pedalazos2=+1;
         int num=Integer.parseInt(Cont.getText()); 
         if ((pedalazos2==num)){
             pedal2.setVisible(false);
@@ -192,6 +200,7 @@ public class simulador extends javax.swing.JFrame {
             pedal2.setVisible(true);
             pedal1.setVisible(false);
         }
+        
     }//GEN-LAST:event_pedal2ActionPerformed
         
     private void s2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s2ActionPerformed
@@ -212,7 +221,8 @@ public class simulador extends javax.swing.JFrame {
     }//GEN-LAST:event_pedal1MouseClicked
 
     private void pedal2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedal2MouseClicked
-     
+        //etqMensaje.setText("pedal2MouseClicked");
+        
     }//GEN-LAST:event_pedal2MouseClicked
 
     private void ContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContActionPerformed
@@ -258,6 +268,7 @@ public class simulador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cont;
     private javax.swing.JTextField Ind1;
+    private javax.swing.JLabel etqMensaje;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton pedal1;
